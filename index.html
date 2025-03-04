@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adventurer Defense</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Home Screen -->
+  <div id="home-screen">
+    <h1>Adventurer Defense</h1>
+    <p>Choose Your Adventurer:</p>
+    <div class="character-options">
+      <div class="character" id="original-character">
+        <div class="character-preview original"></div>
+        <p>White-Haired Adventurer</p>
+      </div>
+      <div class="character" id="new-character">
+        <div class="character-preview new"></div>
+        <p>Black-Haired Adventurer</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="game-screen" class="hidden">
+    <div class="score-container">
+      <p>Score: <span id="score">0</span></p>
+      <p>Top Score: <span id="top-score">0</span></p>
+    </div>
+    <div class="game-container">
+      <div id="castle"></div>
+      <div id="adventurer"></div>
+      <div id="monsters"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

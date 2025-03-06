@@ -27,11 +27,7 @@ function startGame(character) {
   gameScreen.classList.remove('hidden');
 
   // Set adventurer appearance based on selection
-  if (character === 'original') {
-    adventurer.className = 'original';
-  } else if (character === 'new') {
-    adventurer.className = 'new';
-  }
+  adventurer.className = character;
 
   // Reset score
   score = 0;

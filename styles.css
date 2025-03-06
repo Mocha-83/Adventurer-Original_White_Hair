@@ -103,17 +103,6 @@ body {
     box-shadow: 0 0 5px #f1c40f;
   }
   
-  .new::after {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 60px;
-    width: 10px;
-    height: 50px;
-    background-color: #95a5a6;
-    transform: rotate(45deg);
-  }
-  
   /* Game Screen */
   .hidden {
     display: none;
@@ -167,7 +156,7 @@ body {
     height: 40px;
     background-color: #e74c3c;
     border-radius: 50%;
-    animation: moveMonster 5s linear infinite;
+    animation: moveMonster 5s linear forwards;
   }
   
   @keyframes moveMonster {

@@ -46,11 +46,11 @@ body {
 }
 
 .original {
-  background-image: url('images/original-character.png'); /* Path to original character */
+  background-image: url('images/original-character.png'); /* Lowercase folder name */
 }
 
 .new {
-  background-image: url('images/new-character.png'); /* Path to new character */
+  background-image: url('images/new-character.png'); /* Lowercase folder name */
 }
 
 /* Game Screen */
@@ -78,7 +78,7 @@ body {
   transform: translateY(-50%);
   width: 100px;
   height: 150px;
-  background-image: url('images/castle.png'); /* Path to castle image */
+  background-image: url('images/castle.png'); /* Lowercase folder name */
   background-size: cover;
 }
 
@@ -89,7 +89,7 @@ body {
   transform: translateY(-50%);
   width: 50px;
   height: 100px;
-  background-image: url('images/adventurer.png'); /* Path to adventurer image */
+  background-image: url('images/adventurer.png'); /* Lowercase folder name */
   background-size: cover;
 }
 
@@ -104,7 +104,7 @@ body {
   position: absolute;
   width: 40px;
   height: 40px;
-  background-image: url('images/monster.png'); /* Path to monster image */
+  background-image: url('images/monster.png'); /* Lowercase folder name */
   background-size: cover;
   animation: moveMonster 5s linear forwards;
 }
@@ -125,7 +125,7 @@ body {
   position: absolute;
   width: 10px;
   height: 100%;
-  background-image: url('images/thorn-wall.png'); /* Path to thorn wall image */
+  background-image: url('images/thorn-wall.png'); /* Lowercase folder name */
   background-size: cover;
   opacity: 0.7;
 }
@@ -135,7 +135,7 @@ body {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-image: url('images/air-shield.png'); /* Path to air shield image */
+  background-image: url('images/air-shield.png'); /* Lowercase folder name */
   background-size: cover;
   pointer-events: none;
   display: none;

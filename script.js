@@ -4,6 +4,8 @@ const originalCharacterButton = document.getElementById('original-character');
 const newCharacterButton = document.getElementById('new-character');
 const adventurer = document.getElementById('adventurer');
 const monstersContainer = document.getElementById('monsters');
+const thornWallsContainer = document.getElementById('thorn-walls');
+const airShield = document.getElementById('air-shield');
 const scoreDisplay = document.getElementById('score');
 const topScoreDisplay = document.getElementById('top-score');
 
@@ -11,38 +13,37 @@ let score = 0;
 let topScore = 0;
 let gameInterval;
 let scoreInterval;
+let monstersDefeated = 0;
+let thornWallsActive = false;
+let airShieldActive = false;
 
 // Character selection
 originalCharacterButton.addEventListener('click', () => {
+  console.log('Original character selected'); // Debugging
   startGame('original');
 });
 
 newCharacterButton.addEventListener('click', () => {
+  console.log('New character selected'); // Debugging
   startGame('new');
 });
 
 function startGame(character) {
-  // Hide home screen and show game screen
+  console.log('Game started with character:', character); // Debugging
   homeScreen.classList.add('hidden');
   gameScreen.classList.remove('hidden');
-
-  // Set adventurer appearance based on selection
   adventurer.className = character;
-
-  // Reset score
   score = 0;
+  monstersDefeated = 0;
   scoreDisplay.textContent = score;
-
-  // Clear existing monsters
   monstersContainer.innerHTML = '';
 
-  // Create a new monster every 2 seconds
   gameInterval = setInterval(() => {
+    console.log('Spawning monster'); // Debugging
     const monster = document.createElement('div');
     monster.classList.add('monster');
     monstersContainer.appendChild(monster);
 
-    // Check if the monster reaches the castle
     monster.addEventListener('animationend', () => {
       if (monster.parentElement) {
         alert(`Monster reached the castle! Your score: ${score}`);
@@ -51,15 +52,23 @@ function startGame(character) {
     });
   }, 2000);
 
-  // Increase score every second
   scoreInterval = setInterval(() => {
     score++;
     scoreDisplay.textContent = score;
-
-    // Update top score if the current score is higher
     if (score > topScore) {
       topScore = score;
       topScoreDisplay.textContent = topScore;
+    }
+
+    // Unlock abilities based on monsters defeated
+    if (monstersDefeated >= 15 && monstersDefeated < 30) {
+      adventurer.classList.add('flaming-katana');
+    } else if (monstersDefeated >= 30 && monstersDefeated < 45) {
+      adventurer.classList.add('icicles');
+    } else if (monstersDefeated >= 45 && monstersDefeated < 60) {
+      activateThornWalls();
+    } else if (monstersDefeated >= 60) {
+      activateAirShield();
     }
   }, 1000);
 }
@@ -69,4 +78,26 @@ function restartGame() {
   clearInterval(scoreInterval);
   homeScreen.classList.remove('hidden');
   gameScreen.classList.add('hidden');
+}
+
+function activateThornWalls() {
+  if (!thornWallsActive) {
+    thornWallsActive = true;
+    thornWallsContainer.innerHTML = '<div class="thorn-wall" style="left: 0;"></div><div class="thorn-wall" style="right: 0;"></div>';
+    setTimeout(() => {
+      thornWallsContainer.innerHTML = '';
+      thornWallsActive = false;
+    }, 15000);
+  }
+}
+
+function activateAirShield() {
+  if (!airShieldActive) {
+    airShieldActive = true;
+    airShield.style.display = 'block';
+    setTimeout(() => {
+      airShield.style.display = 'none';
+      airShieldActive = false;
+    }, 10000);
+  }
 }
